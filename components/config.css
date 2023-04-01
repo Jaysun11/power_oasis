@@ -1,0 +1,73 @@
+.primary-button-container {
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.primary-button-button {
+  color: var(--dl-color-gray-white);
+  align-self: center;
+  transition: 0.3s;
+  padding-top: 12px;
+  border-width: 0px;
+  padding-left: 32px;
+  border-radius: var(--dl-radius-radius-radius6);
+  padding-right: 32px;
+  padding-bottom: 12px;
+  background-color: #f53030;
+}
+.primary-button-button:hover {
+  background-color: #f86969;
+}
+.primary-button-button:active {
+  background-color: #7b7b7b;
+}
+.primary-button-root-class-name {
+  align-self: center;
+}
+.primary-button-root-class-name1 {
+  align-self: center;
+}
+
+.config-container {
+  width: auto;
+  margin: var(--dl-space-space-unit);
+  display: flex;
+  position: relative;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+}
+.config-container1 {
+  width: 307px;
+  margin: var(--dl-space-space-halfunit);
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+}
+.config-container2 {
+  width: 100%;
+  display: flex;
+  position: relative;
+  align-items: flex-start;
+  margin-right: var(--dl-space-space-unit);
+  flex-direction: column;
+}
+.config-select {
+  width: 100%;
+  height: var(--dl-size-size-doubleunit);
+  border-color: var(--dl-color-gray-900);
+  border-width: 1px;
+  border-radius: var(--dl-radius-radius-radius4);
+}
+.config-text {
+  width: 100%;
+  margin-top: var(--dl-space-space-halfunit);
+  border-color: var(--dl-color-gray-900);
+  border-width: 0px;
+  border-radius: var(--dl-radius-radius-radius4);
+}
+.config-root-class-name {
+  margin-left: 0px;
+}

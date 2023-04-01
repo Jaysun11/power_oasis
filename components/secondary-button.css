@@ -1,0 +1,27 @@
+.secondary-button-container {
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.secondary-button-button {
+  color: #ff2b2b;
+  align-self: center;
+  transition: 0.3s;
+  padding-top: 12px;
+  border-width: 0px;
+  padding-left: 32px;
+  border-radius: var(--dl-radius-radius-radius6);
+  padding-right: 32px;
+  padding-bottom: 12px;
+  background-color: #ffe4e4;
+}
+.secondary-button-button:hover {
+  color: var(--dl-color-gray-white);
+  background-color: #ffb1b1;
+}
+.secondary-button-button:active {
+  color: var(--dl-color-gray-white);
+  background-color: #f86969;
+}

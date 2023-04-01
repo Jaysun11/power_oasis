@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>PowerOasis</title>
+    <meta property="og:title" content="PowerOasis" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <script type="text/javascript" src="gauge.min.js"></script>
+    <script src="data_gather.js" type="text/javascript"></script>  
+    <script src="data_send.js" type="text/javascript"></script>  
+    
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <style data-tag="reset-style-sheet">
+      html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;}html { scroll-behavior: smooth  }
+    </style>
+    <style data-tag="default-style-sheet">
+      html {
+        font-family: Inter;
+        font-size: 16px;
+      }
+
+      body {
+        font-weight: 400;
+        font-style:normal;
+        text-decoration: none;
+        text-transform: none;
+        letter-spacing: normal;
+        line-height: 1.55;
+        color: var(--dl-color-gray-900);
+        background-color: var(--dl-color-gray-white);
+
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script:wght@400&amp;display=swap"
+      data-tag="font"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div>
+      <link href="./home.css" rel="stylesheet" />
+
+      <div class="home-container">
+        <div data-role="Header" class="home-header-container">
+          <header class="home-header">
+            <div class="home-logo">
+              <img
+                alt="RedEarth Logo"
+                src="public/playground_assets/redearth_logo.svg"
+                class="home-image"
+              />
+            </div>
+          </header>
+        </div>
+        <div class="home-main"></div>
+        <div class="home-features">
+          <h2 class="Headline2 home-text06">PowerOasis Data</h2>
+          <span class="home-text07">
+            Below you will find a near real-time summary of the PowerOasis'
+            current state
+          </span>
+          <div class="home-features1">
+            <div class="home-container07">
+              <div class="home-container08">
+                <div class="data-card-container">
+                  <span style="height:20px;"></span>
+                  <p class="data-card-text01 Headline6" id="TOTAL_AC_SOURCE_POWER"><span>-</span></p>
+                  <canvas id="ac_source_gauge"></canvas>
+                  <!---->
+                  <span style="height:5px;"></span>
+                  <h5 class="data-card-text Headline5"><span>AC Source (KW)</span></h5>
+                  <span style="height:5px;"></span>
+                  <div class="data-card-container2">
+                    <span class="data-card-text02"><span id="Source_L1_Watts">Watts: -</span></span>
+                    <span class="data-card-text03"><span id="Source_L1_Volts">Volts: -</span></span>
+                    <span class="data-card-text04"><span id="Source_L1_Current">Current: -</span></span>
+                  </div>
+                  <div class="data-card-container3">
+                    <span class="data-card-text05"><span id="Source_L2_Watts">Watts: -</span></span>
+                    <span class="data-card-text06"><span id="Source_L2_Volts">Volts: -</span></span>
+                    <span class="data-card-text07"><span id="Source_L2_Current">Current: -</span></span>
+                  </div>
+                  <div class="data-card-container4">
+                    <span class="data-card-text08"><span id="Source_L3_Watts">Watts: -</span></span>
+                    <span class="data-card-text09"><span id="Source_L3_Volts">Volts: -</span></span>
+                    <span class="data-card-text10"><span id="Source_L3_Current">Current: -</span></span>
+                  </div>
+                  <span class="data-card-text11"><span id="AC_SOURCE_FREQUENCY">Frequency -</span></span>
+                </div>
+              </div>
+            </div>
+            <div class="home-container09">
+
+              <div class="data-card-container">
+                <p class="data-card-text01 Headline6"><span id="Solar_Watts">-</span></p>
+                <canvas id="pv_gauge"></canvas>
+                <span style="height:5px;"></span>
+                <h5 class="data-card-text Headline5"><span>PV Power (KW)</span></h5>
+                <span style="height:5px;"></span>
+               <!-- -->
+                <div class="data-card-container2">
+                  <span class="data-card-text03"><span id="Solar_Volts">Voltage: -</span></span>
+                  <span class="data-card-text02"><span id="Solar_Current">Current: -</span></span>
+                </div>
+              </div>
+
+              <div class="data-card-container" style="margin-top:20px">
+                <h5 class="data-card-text Headline5">
+                  <span>Battery Power (KW)</span>
+                </h5>
+                <span style="height:5px;"></span>
+                <p class="data-card-text01 Headline6" id="Battery_Watts"><span>-</span></p>
+                <canvas id="battery_gauge"></canvas>
+                <h5>
+                  <span>SOC (%)</span>
+                </h5>
+                <span style="height:20px;"></span>
+
+                <div class="data-card-container2">
+                  <span class="data-card-text02" ><span id="Battery_Voltage">Voltage: -</span></span>
+                  <span class="data-card-text03" ><span id="Battery_Current">Current: -</span></span>
+                </div>
+              </div>
+            </div>
+            <div class="home-container10">
+
+              <div class="data-card-container">
+                <p class="data-card-text01 Headline6" id="TOTAL_LOAD_POWER"><span>-</span></p>
+                <canvas id="output_gauge"></canvas>
+                <span style="height:5px;"></span>
+                <h5 class="data-card-text Headline5">
+                  <span>Load Power (KW)</span>
+                </h5>
+                <span style="height:5px;"></span>
+               <!-- -->
+                  <div class="data-card-container2">
+                    <span class="data-card-text02"><span id="Load_L1_Watts">Watts: -</span></span>
+                    <span class="data-card-text03"><span id="Load_L1_Volts">Volts: -</span></span>
+                    <span class="data-card-text04"><span id="Load_L1_Current">Current: -</span></span>
+                  </div>
+                  <div class="data-card-container3">
+                    <span class="data-card-text05"><span id="Load_L2_Watts">Watts: -</span></span>
+                    <span class="data-card-text06"><span id="Load_L2_Volts">Volts: -</span></span>
+                    <span class="data-card-text07"><span id="Load_L2_Current">Current: -</span></span>
+                  </div>
+                  <div class="data-card-container4">
+                    <span class="data-card-text08"><span id="Load_L3_Watts">Watts: -</span></span>
+                    <span class="data-card-text09"><span id="Load_L3_Volts">Volts: -</span></span>
+                    <span class="data-card-text10"><span id="Load_L3_Current">Current: -</span></span>
+                  </div>
+                  <span class="data-card-text11"><span id="LOAD_FREQUENCY">Frequency -</span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="home-features2">
+          <h2 class="Headline2 home-text08">Configuration</h2>
+          <span class="home-text09">
+            Use this section to configure key parameters
+          </span>
+          <div class="home-container11">
+            <div class="home-container12">
+              <svg viewBox="0 0 1024 1024" class="home-icon21">
+                <path d="M342 214l468 298-468 298v-596z"></path>
+              </svg>
+              <div class="config1-container config1-root-class-name">
+                <div class="config1-container1">
+                  <div class="config1-container2">
+                    <input id="generator_SOC_Start"
+                      type="text"
+                      placeholder="placeholder"
+                      class="config1-textinput input"
+                    />
+                    <span class="config1-text Body1">
+                      <span>Generator Start Point (SOC)</span>
+                    </span>
+                  </div>
+                  <div
+                    class="primary-button-container primary-button-root-class-name"
+                  >
+                    <button class="primary-button-button MediumLabel button" id="updateGeneratorSOCStartButton">
+                      <span>Save</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="home-container13">
+              <svg viewBox="0 0 1024 1024" class="home-icon23">
+                <path d="M256 256h512v512h-512v-512z"></path>
+              </svg>
+              <div class="config1-container config1-root-class-name5">
+                <div class="config1-container1">
+                  <div class="config1-container2">
+                    <input id="generator_SOC_Stop"
+                      type="text"
+                      placeholder="placeholder"
+                      class="config1-textinput input"
+                    />
+                    <span class="config1-text Body1">
+                      <span>Generator Stop Point (SOC)</span>
+                    </span>
+                  </div>
+                  <div
+                    class="primary-button-container primary-button-root-class-name"
+                  >
+                    <button class="primary-button-button MediumLabel button">
+                      <span>Save</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="home-container14">
+              <svg viewBox="0 0 1024 1024" class="home-icon25">
+                <path d="M342 214l468 298-468 298v-596z"></path>
+              </svg>
+              <div class="config1-container config1-root-class-name4">
+                <div class="config1-container1">
+                  <div class="config1-container2">
+                    <input id="generator_Voltage_Start"
+                      type="text"
+                      placeholder="placeholder"
+                      class="config1-textinput input"
+                    />
+                    <span class="config1-text Body1">
+                      <span>Generator Sart Point (Voltage)</span>
+                    </span>
+                  </div>
+                  <div
+                    class="primary-button-container primary-button-root-class-name"
+                  >
+                    <button class="primary-button-button MediumLabel button">
+                      <span>Save</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="home-container15">
+              <svg viewBox="0 0 1024 1024" class="home-icon27">
+                <path d="M256 256h512v512h-512v-512z"></path>
+              </svg>
+              <div class="config1-container config1-root-class-name1">
+                <div class="config1-container1">
+                  <div class="config1-container2">
+                    <input id="generator_Voltage_Stop"
+                      type="text"
+                      placeholder="placeholder"
+                      class="config1-textinput input"
+                    />
+                    <span class="config1-text Body1">
+                      <span>Generator Stop Point (Voltage)</span>
+                    </span>
+                  </div>
+                  <div
+                    class="primary-button-container primary-button-root-class-name"
+                  >
+                    <button class="primary-button-button MediumLabel button">
+                      <span>Button</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="home-container16">
+              <svg viewBox="0 0 1024 1024" class="home-icon29">
+                <path
+                  d="M832 406q44 0 75 31t31 75-31 75-75 31q-72 0-98-64h-124q-26 64-98 64t-98-64h-124q-26 64-98 64-44 0-75-31t-31-75 31-75 75-31q72 0 98 64h124q26-64 98-64t98 64h124q26-64 98-64z"
+                ></path>
+              </svg>
+              <div class="config-container config-root-class-name">
+                <div class="config-container1">
+                  <div class="config-container2">
+                    <select class="config-select" id="Grid_connected_status">
+                      <option value="True" selected="">Grid Connected</option>
+                      <option value="False">Standalone</option>
+                    </select>
+                    <span class="config-text Body1">
+                      <span>Grid Connected Status</span>
+                    </span>
+                  </div>
+                  <div
+                    class="primary-button-container primary-button-root-class-name1"
+                  >
+                    <button class="primary-button-button MediumLabel button">
+                      <span>Save</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="home-container17">
+              <svg viewBox="0 0 1024 1024" class="home-icon31">
+                <path
+                  d="M810 768q52 0 90-38t38-90-38-90-90-38h-64v-22q0-98-68-166t-166-68q-80 0-142 48t-84 122h-30q-70 0-120 51t-50 121 50 120 120 50h554zM826 428q82 6 140 67t58 145q0 88-63 151t-151 63h-554q-106 0-181-75t-75-181q0-94 67-169t161-85q42-78 118-126t166-48q108 0 201 76t113 182z"
+                ></path>
+              </svg>
+              <div class="config1-container config1-root-class-name3">
+                <div class="config1-container1">
+                  <div class="config1-container2">
+                    <input id="shelly_ip"
+                      type="text"
+                      placeholder="placeholder"
+                      class="config1-textinput input"
+                    />
+                    <span class="config1-text Body1">
+                      <span>Shelly IP Address</span>
+                    </span>
+                  </div>
+                  <div
+                    class="primary-button-container primary-button-root-class-name"
+                  >
+                    <button class="primary-button-button MediumLabel button">
+                      <span>Save</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="home-container18">
+              <svg viewBox="0 0 1024 1024" class="home-icon33">
+                <path
+                  d="M426 640v-154l-238 240-60-60 238-240h-152v-84h298v298h-86zM768 44q34 0 60 25t26 59v768q0 34-26 60t-60 26h-426q-34 0-60-26t-26-60v-128h86v42h426v-596h-426v42h-86v-128q0-34 26-60t60-26z"
+                ></path>
+              </svg>
+              <div class="config1-container config1-root-class-name6">
+                <div class="config1-container1">
+                  <div class="config1-container2">
+                    <input id="plant_id"
+                      type="text"
+                      placeholder="placeholder"
+                      class="config1-textinput input"
+                    />
+                    <span class="config1-text Body1">
+                      <span>Plant ID (Cloud)</span>
+                    </span>
+                  </div>
+                  <div
+                    class="primary-button-container primary-button-root-class-name"
+                  >
+                    <button class="primary-button-button MediumLabel button">
+                      <span>Save</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="home-container19">
+              <svg viewBox="0 0 1024 1024" class="home-icon35">
+                <path
+                  d="M298 598q34 0 60-26t26-60-26-60-60-26-59 26-25 60 25 60 59 26zM540 426h442v172h-86v170h-170v-170h-186q-26 70-97 120t-145 50q-106 0-181-75t-75-181 75-181 181-75q74 0 145 50t97 120z"
+                ></path>
+              </svg>
+              <div class="config1-container config1-root-class-name7">
+                <div class="config1-container1">
+                  <div class="config1-container2">
+                    <input id="token"
+                      type="text"
+                      placeholder="placeholder"
+                      class="config1-textinput input"
+                    />
+                    <span class="config1-text Body1">
+                      <span>Token (Cloud)</span>
+                    </span>
+                  </div>
+                  <div
+                    class="primary-button-container primary-button-root-class-name"
+                  >
+                    <button class="primary-button-button MediumLabel button">
+                      <span>Save</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="home-footer">
+          <footer class="home-container20">
+            <div class="home-divider"></div>
+            <div class="home-container21">
+              <span class="home-text10 Body2">
+                © 2023 RedEarth Energy Storage
+              </span>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      //Run all the time
+      setInterval(function() {
+        getData()
+      }, 250);
+
+      //ON PAGE START
+      loadConfig()
+
+      //Update Generator SOC Start
+      const updateGeneratorSOCStartButton = document.getElementById("updateGeneratorSOCStartButton");
+      updateGeneratorSOCStartButton.addEventListener("click", () => {
+          const newValue = parseFloat(document.getElementById("generator_SOC_Start").value);
+          sendDatatoConfig(newValue)
+      });
+
+    </script>
+
+
+  </body>
+
+  
+
+
+</html>

@@ -1,0 +1,87 @@
+.data-card-container {
+  width: 320px;
+  margin: var(--dl-space-space-halfunit);
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-direction: column;
+}
+.data-card-container1 {
+  flex: 0 0 auto;
+  width: auto;
+  border: 2px dashed rgba(120, 120, 120, 0.4);
+  height: DoubleUnit;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+.data-card-text {
+  margin-top: 0px;
+  text-align: center;
+  margin-left: var(--dl-space-space-unit);
+  margin-right: var(--dl-space-space-unit);
+  margin-bottom: 0px;
+}
+.data-card-text01 {
+  margin-top: var(--dl-space-space-halfunit);
+  text-align: center;
+  margin-bottom: var(--dl-space-space-halfunit);
+}
+.data-card-container2 {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: var(--dl-space-space-halfunit);
+  flex-direction: row;
+  justify-content: center;
+}
+.data-card-text02 {
+  text-align: center;
+  margin-right: var(--dl-space-space-halfunit);
+}
+.data-card-text03 {
+  text-align: center;
+  margin-right: var(--dl-space-space-halfunit);
+}
+.data-card-text04 {
+  text-align: center;
+}
+.data-card-container3 {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: var(--dl-space-space-halfunit);
+  flex-direction: row;
+  justify-content: center;
+}
+.data-card-text05 {
+  text-align: center;
+  margin-right: var(--dl-space-space-halfunit);
+}
+.data-card-text06 {
+  text-align: center;
+  margin-right: var(--dl-space-space-halfunit);
+}
+.data-card-text07 {
+  text-align: center;
+}
+.data-card-container4 {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: var(--dl-space-space-halfunit);
+  flex-direction: row;
+  justify-content: center;
+}
+.data-card-text08 {
+  text-align: center;
+  margin-right: var(--dl-space-space-halfunit);
+}
+.data-card-text09 {
+  text-align: center;
+  margin-right: var(--dl-space-space-halfunit);
+}
+.data-card-text10 {
+  text-align: center;
+}
+.data-card-text11 {
+  text-align: center;
+  margin-right: var(--dl-space-space-halfunit);
+}
