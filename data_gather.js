@@ -144,7 +144,7 @@ function loadConfig(){
         ac_gauge = new Gauge(ac_target).setOptions(opts); // create sexy gauge!
 
         ac_gauge.maxValue = 50; // set max gauge value
-        ac_gauge.setMinValue(0);  // Prefer setter over gauge.minValue = 0
+        ac_gauge.setMinValue(-50);  // Prefer setter over gauge.minValue = 0
         ac_gauge.animationSpeed = 15; // set animation speed (32 is default value)
         
         var pv_target = document.getElementById('pv_gauge'); // your canvas element
@@ -161,8 +161,8 @@ function loadConfig(){
 
         var output_target = document.getElementById('output_gauge'); // your canvas element
         output_gauge = new Gauge(output_target).setOptions(opts); // create sexy gauge!
-        pv_gauge.maxValue = 100; // set max gauge value
-        pv_gauge.setMinValue(0);  // Prefer setter over gauge.minValue = 0
+        pv_gauge.maxValue = 50; // set max gauge value
+        pv_gauge.setMinValue(-50);  // Prefer setter over gauge.minValue = 0
         pv_gauge.animationSpeed = 15; // set animation speed (32 is default value)
 
 
